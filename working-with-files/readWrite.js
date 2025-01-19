@@ -20,3 +20,12 @@ fs.readFile(filePath, 'utf8', function (err, contents) {
 		console.log('File updated.');
 	});
 });
+
+// proof of asynchronous execution while file is being read and updated.
+// using unref() on setInterval() means this timer will not keep the Node.js 
+// event loop active if it's the only remaining active event in the event loop.
+// calls to unref() are useful for timers for which you want to execute an action 
+// in the future but do not want to keep the Node.js process running solely on those timers.
+setInterval(function () {
+	process.stdout.write('**** \n');
+}, 1).unref(); // 
