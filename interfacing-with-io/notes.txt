@@ -1,0 +1,2 @@
+:process object
+its a global object that gives information and control of running NodeJs process
