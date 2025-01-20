@@ -5,7 +5,13 @@ const path = require('node:path');
 const file = path.resolve(process.cwd(), 'file.txt');
 
 fs.watchFile(file, function (current, previous) {
-	console.log(`${file} updated ${current.mtime}`);
+  // formatted modification time with Intl.DateTimeFormat object
+	const formattedTime = new Intl.DateTimeFormat('en-GB', {
+		dateStyle: 'full',
+		timeStyle: 'long',
+	}).format(current.mtime);
+
+	console.log(`${file} updated ${formattedTime}`);
 });
 
 // run program:
