@@ -1,0 +1,10 @@
+Watch-mode capabilities
+npm nodemon package:
+automatically restarts app when it detects code changes
+
+watch mode:
+$ node --watch app.js
+while in watch mode, modifications to the observed files trigger a Node.js process restart.
+the built-in watch mode will monitor the main entry file and any modules that are required or imported.
+specify file watch list:
+$ node --watch-path=./src --watch-path=./test app.js
