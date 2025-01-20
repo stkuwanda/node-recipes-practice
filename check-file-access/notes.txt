@@ -1,0 +1,13 @@
+fs.access() and fs.accessSync:
+used to check the existence of a file or directory
+also useful to check user access permissions for file or directory passed to it
+
+fs.chmod() and fs.chmodSync():
+used to alter the permissions on a given file from (unix type system).
+
+fs.lstatSync():
+only for unix systems
+create a symbolic link:
+$ ln -s file.txt link-to-file
+check symbolic link
+REPL>fs.lstatSync('link-to-file');
