@@ -38,3 +38,16 @@ console.log(buf3);
 // creating a Buffer from a string, there's an optional encoding argument
 const buf4 = Buffer.from('I am string data inside the Buffer.', 'utf8');
 console.log(buf4);
+
+// writing Buffers (writing to Buffers)
+const buf5 = Buffer.alloc(5);
+console.log('buf5 empty:', buf5);
+
+// the second argument is the offset, determines where to start overwriting the buffer.
+// offset says overwriting begins from and including the third slot or 
+// number of bytes to skip before starting to write string. Default: 0.
+// the third parameter is the maximum number of bytes to write (written bytes will not exceed buf.length - offset). 
+// Default: buf.length - offset
+buf5.write('hello', 2, 2, 'utf8');
+console.log(buf5);
+
