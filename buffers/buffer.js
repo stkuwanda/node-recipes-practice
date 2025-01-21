@@ -51,3 +51,26 @@ console.log('buf5 empty:', buf5);
 buf5.write('hello', 2, 2, 'utf8');
 console.log(buf5);
 
+// reading from buffers with buffer.toString() method: example copied from Node.js v22.13.0 Documentatiom
+/* all optional parameters in signature order
+encoding <string>: The character encoding to use. Default: 'utf8'.
+start <integer>: The byte offset to start decoding at. Default: 0.
+end <integer>: The byte offset to stop decoding at (not inclusive). Default: buf.length.
+Returns: <string>
+*/
+
+const buf6 = Buffer.allocUnsafe(26);
+
+for (let i = 0; i < 26; i++) {
+  // 97 is the decimal ASCII value for 'a'.
+  buf6[i] = i + 97;
+}
+
+console.log(buf6.toString('utf8')); // Prints: abcdefghijklmnopqrstuvwxyz
+console.log(buf6.toString('utf8', 0, 5)); // Prints: abcde
+
+const buf7 = Buffer.from('tést');
+console.log(buf7.toString('hex')); // Prints: 74c3a97374
+console.log(buf7.toString('utf8', 0, 3)); // Prints: té
+console.log(buf7.toString(undefined, 0, 3)); // Prints: té
+
