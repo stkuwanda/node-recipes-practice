@@ -12,3 +12,21 @@ view[1] = 2; // store a number in the final slot
 view[2] = 3; // no error, but this assignment is ignored as this slot doesn't exist
 
 console.log(view);
+
+// NodeJs Buffers
+// Buffer objects represent a fixed-length sequence of bytes in Node.js. 
+// The Buffer class is a subclass of the Uint8Array JavaScript class and extends it with 
+// methods that cover additional use cases.
+// Node.js API accepts simple Uint8Arrays if buffers are supported
+
+// the Buffer object is available globaly but it is recommended to import it explicitly
+const { Buffer } = require('node:buffer');
+
+const buf = Buffer.alloc(1234); // argument specifies the size of the Buffer in bytes (octets)
+console.log(buf.length); // Prints: 1234
+buf.write('some string', 0, 'utf8'); // write a shorter string to it using UTF-8.
+console.log(buf);
+
+// an unwritten Buffer of size 10 bytes
+const buf2 = Buffer.alloc(10);
+console.log(buf2);
