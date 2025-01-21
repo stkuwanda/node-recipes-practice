@@ -83,3 +83,23 @@ console.log(JSON.parse(jsonString));
 
 // using buf.toJSON() method
 console.log(buf8.toJSON());
+
+// concatenating buffers using the static Buffer.concat() method
+// Buffer.concat(): Returns a new Buffer which is the result of concatenating all 
+// the Buffer instances in the list together.
+/*
+list <Buffer[]> | <Uint8Array[]>: List of Buffer or Uint8Array instances to concatenate.
+totalLength <integer>: Total length of the Buffer instances in list when concatenated.
+Returns: <Buffer>
+*/
+// Create a single `Buffer` from a list of three `Buffer` instances.
+// example copied from Node.js v22.13.0 Documentatiom
+const buf9 = Buffer.alloc(10);
+const buf10 = Buffer.alloc(14);
+const buf11 = Buffer.alloc(18);
+const totalLength = buf9.length + buf10.length + buf11.length;
+console.log(totalLength); // Prints: 42
+
+const bufA = Buffer.concat([buf9, buf10, buf11], totalLength);
+console.log(bufA); // Prints: <Buffer 00 00 00 00 ...>
+console.log(bufA.length); // Prints: 42
