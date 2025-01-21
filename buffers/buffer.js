@@ -30,3 +30,11 @@ console.log(buf);
 // an unwritten Buffer of size 10 bytes
 const buf2 = Buffer.alloc(10);
 console.log(buf2);
+
+// creating a Buffer from an array
+const buf3 = Buffer.from([10, 20, 30, 40, 50]);
+console.log(buf3);
+
+// creating a Buffer from a string, there's an optional encoding argument
+const buf4 = Buffer.from('I am string data inside the Buffer.', 'utf8');
+console.log(buf4);
