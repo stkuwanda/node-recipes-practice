@@ -1,4 +1,4 @@
-// constructing readable streams with iterators
+// constructing Readable type streams with async iterators
 const { Readable } = require('node:stream');
 
 async function* generate() {
