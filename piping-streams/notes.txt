@@ -1,0 +1,8 @@
+By default, when using the pipe() method, stream.end() is called on the destination writable
+stream when the source readable stream emits an end event. This means that the destination is no
+longer writable.
+To disable this default behavior, we can supply { end: false } to the pipe() method via an
+options argument:
+sourceStream.pipe(destinationStream, {end: false});
+This configuration instructs the destination stream to remain open even after the end event has been
+emitted by the source stream.
