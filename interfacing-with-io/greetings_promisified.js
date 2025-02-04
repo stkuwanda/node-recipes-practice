@@ -12,4 +12,5 @@ async function greet() {
 	console.log(`Hi ${nameVar}!\n`);
 	rl.close();
 }
- greet();
+
+greet();
